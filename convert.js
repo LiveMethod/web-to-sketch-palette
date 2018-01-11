@@ -1,9 +1,20 @@
+var fs = require('fs');
+// node args (trimming the path/file)
+var args = process.argv.slice(2);
+
+fileData = fs.readFileSync(args[0], 'utf8');
+colors = JSON.parse(fileData)["colors"];
+
+for(var c = 0; c < colors.length; c++){
+  console.log( hexToSketch(colors[c]) );
+}
+
 // All of these are equivalent
-var colorHex = '#F44336';
-var colorRGB = '244,67,54';
-var colorRGBA = '244,67,54,1';
-var colorHSL = '4,78,96';
-var colorHSLA = '4,78,96,1';
+// var colorHex = '#F44336';
+// var colorRGB = '244,67,54';
+// var colorRGBA = '244,67,54,1';
+// var colorHSL = '4,78,96';
+// var colorHSLA = '4,78,96,1';
 
 // Output should be an object containing RGB colors
 // as percentages of max value (255) and alpha from 0 to 1.
@@ -47,17 +58,6 @@ function hexToSketch(hex){
     parseInt( color.slice(4), 16 ) / 255,
   ];
 
-  console.log(toRGB);
+  // console.log(toSketch);
+  return toSketch;
 }
-
-console.log('calling hex to sketch with color #F44336');
-hexToSketch('#F44336');
-console.log(' ');
-
-console.log('calling hex to sketch with color #123');
-hexToSketch('#123');
-console.log(' ');
-
-console.log('calling hex to sketch with color #CAT');
-hexToSketch('#CAT');
-console.log(' ');
