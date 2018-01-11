@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title Internet Website 2001
+    link(rel="stylesheet" href="styles/main.css")
+
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+
+    script(src="js/convert.js")
+
+    script.
+      $(document).ready(function(){
+        $('#verify').click(function(){
+          var data = $('#entry').val();
+          verify(data);
+        })
+      });
+  body
+
+    h2 Entry Form
+    textarea(id="entry")
+    input(type="button" value="Verify" id="verify")
+      
+    h2 Download Form
+    form(onsubmit="download(this['name'].value, this['text'].value)")
+      input(type="hidden" name="name" value="custom.sketchpalette")
+      textarea(type="hidden" name="text" id="download-content")
+      input(type="submit" value="Download")

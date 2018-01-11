@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Internet Website 2001</title><link rel="stylesheet" href="styles/main.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="js/convert.js"></script><script>$(document).ready(function(){
+  $('#verify').click(function(){
+    var data = $('#entry').val();
+    verify(data);
+  })
+});</script></head><body><h2>Entry Form</h2><textarea id="entry"></textarea><input type="button" value="Verify" id="verify"><h2>Download Form</h2><form onsubmit="download(this['name'].value, this['text'].value)"><input type="hidden" name="name" value="custom.sketchpalette"><textarea type="hidden" name="text" id="download-content"></textarea><input type="submit" value="Download"></form></body></html>
