@@ -11,19 +11,89 @@ html
 
     script.
       $(document).ready(function(){
+
+        //- IDE text length check and button unlock
+        $('#entry').bind('input propertychange', function(){
+          //- There needs to be at least a min length hexcode
+          if( $(this).val().length  >= 3 ) {
+            $('#verify').removeClass('inactive');
+          } else {
+            $('#verify').addClass('inactive');
+          }
+        });
+
+        //- show/hide help
+        $('.text-help').click(function(){
+          console.log('click');
+          $('.help-content').fadeToggle();
+
+          if($(this).text() == 'Close help'){
+               $(this).text('What do I do with a Sketch palette?');
+           } else {
+               $(this).text('Close help');
+           }
+        });
+
+        //- Handle verify button click
         $('#verify').click(function(){
-          var data = $('#entry').val();
-          verify(data);
+          //- not doing in this in the selector because
+          //- it messes with event binding
+          if( !$(this).hasClass('inactive') ){
+            var data = $('#entry').val();
+            verify(data);
+          }
+
         })
       });
   body
+    .header
+      img.logo(src="img/logo.png" alt="logo")
+    .content
+      .value-prop
+        | Paste 
+        strong.text-white hex 
+        | colors.
+        br
+        | Get 
+        strong.text-sketch Sketch 
+        | palette.
 
-    h2 Entry Form
-    textarea(id="entry")
-    input(type="button" value="Verify" id="verify")
+      .center-column
+        textarea.ide(id="entry" placeholder="Paste hex colors here. Separate with comma, space, or line break.")
+
+        .error-wrap
+
+        input.make-button.inactive(type="button" value="Make Sketch Palette" id="verify")
       
-    h2 Download Form
-    form(onsubmit="download(this['name'].value, this['text'].value)")
-      input(type="hidden" name="name" value="custom.sketchpalette")
-      textarea(type="hidden" name="text" id="download-content")
-      input(type="submit" value="Download")
+        
+        form.download-form(onsubmit="download(this['name'].value, this['text'].value)")
+          input(type="hidden" name="name" value="custom.sketchpalette")
+          textarea(type="hidden" name="text" id="download-content")
+          button.download(type="submit" value="Download")
+            img(src="img/download-button-fill.png" alt="download")
+      
+      .help-wrapper
+        a.text-help(href="#help") What do I do with a Sketch palette?
+      .help-content
+        .center-column
+          h2 How do I use a .sketchpalette file?
+
+          h3 1. Get the Sketch Palettes plugin
+
+          p I highly recommend 
+            a(href="https://sketchpacks.com/") https://sketchpacks.com/
+            | for managing your sketch plugins. Within sketchpacks, you can search 'palettes' and the sketch-palettes plugin will appear.
+          
+          p Otherwise, instructions/info here: 
+            a(href="https://github.com/andrewfiorillo/sketch-palettes") https://github.com/andrewfiorillo/sketch-palettes
+
+          h3 2. Load your palette from the Plugins menu
+
+
+
+    .footer
+      | Made with
+      img.pizza(src="img/pizza.png" alt="pizza")
+      | by 
+      a(href="http://ricksteeledesign.com") Rick Steele &#8213; Product Design Technolgist
+      .text-subtle Ask me about fintech, design systems, and living style guides.

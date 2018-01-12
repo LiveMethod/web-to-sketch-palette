@@ -23,29 +23,34 @@ function verify(content){
   colors = [];
 
   for(var i = 0; i < input.length; i++){
-    var color = input[i].toLowerCase();
-    // validate the thing is actually hexcode.
+    if( input[i].length >= 3){
+      var color = input[i].toLowerCase();
+      // validate the thing is actually hexcode.
 
-    // if the first char is #, remove it
-    if (color.charAt(0) == '#') {
-      color = color.substring(1);
-    }
-  
-    // if the length is exactly 3, double each character to get 6
-    if (color.length == 3){
-      chars = color.split('');
-      color = chars[0] + chars[0] + chars[1] + chars[1] + chars[2] + chars[2];
-    }
+      // if the first char is #, remove it
+      if (color.charAt(0) == '#') {
+        color = color.substring(1);
+      }
+    
+      // if the length is exactly 3, double each character to get 6
+      if (color.length == 3){
+        chars = color.split('');
+        color = chars[0] + chars[0] + chars[1] + chars[1] + chars[2] + chars[2];
+      }
 
-    // text that this is a valid hexcode
-    var hexTest = /[0-9a-f]{6}/.exec(color);
+      console.log('testing "' + color + '"')
+      // text that this is a valid hexcode
+      var hexTest = /^[0-9a-f]{6}$/.exec(color);
 
-    // if it passes the hex regex, save and continue
-    if( !hexTest ){
-      alertError(input[i]);
-      return false;
-    } else {
-      colors.push(color);
+      // if it passes the hex regex, save and continue
+      if( !hexTest ){
+        alertError(input[i]);
+        return false;
+      } else {
+        clearError();
+        console.log(color + 'is valid');
+        colors.push(color);
+      }
     }
 
     // if this is the last color and we got this far, make available for download.
@@ -77,13 +82,27 @@ function prepDownload(colors){
   var finalValue = jsonStart + JSON.stringify(sketchColors) + '}';
 
   document.getElementById('download-content').value = finalValue;
+
+  $('.download').show();
 }
 
 // yell loudly.
-// TODO: make this UI better than a default alert
 function alertError(input){
-  alert('ERROR: ' + input + ' is not a valid hex color.');
+  helptext = input.length > 2 ? 'Please make sure you have valid hexidecimal codes. \
+    3 or 6 chars, "#" sign optional.' : 'Check for stray line breaks at the end. '
+  error = $('<div class="error">\
+    <strong>No Bueno.</strong>\
+    <p>The robot couldn\'t make sense of "'+input+'"</p>\
+    <p>' + helptext + '</p></div>');
+  $('.error-wrap').html(error);
+  $('.download').hide();
 }
+
+// retract loud yelling
+function clearError(){
+  $('.error-wrap').html(' ');
+}
+
 
 // expects a lowercase 6 digit string like 'ff9827'
 function hexToSketch(hex){

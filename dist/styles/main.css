@@ -1,1 +1,206 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
+html,
+body {
+  height: 100%;
+  background-color: #404040;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+strong {
+  font-weight: 600;
+}
+h2 {
+  font-weight: 600;
+  font-size: 24px;
+}
+h3 {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 24px;
+}
+p {
+  margin: 0.75em 0;
+  line-height: 1.4em;
+  font-weight: 400;
+  color: #666666;
+}
+a {
+  color: #2092E9;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.header {
+  padding: 48px;
+  background-color: #222222;
+  text-align: center;
+}
+.header .logo {
+  width: 200px;
+}
+.content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.value-prop {
+  color: #979797;
+  font-size: 36px;
+  line-height: 1.2em;
+  text-align: center;
+  padding: 40px 0;
+}
+.center-column {
+  width: 80%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.ide {
+  background-color: #2c2c2c;
+  box-shadow: inset 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  height: 320px;
+  padding: 36px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  font-size: 18px;
+  color: #CCCCCC;
+  margin-bottom: 16px;
+}
+.ide::placeholder {
+  color: #666666;
+}
+.ide:focus {
+  outline: none;
+  background-color: #272727;
+}
+.make-button {
+  background-color: #5AAE58;
+  border: none;
+  width: 100%;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px;
+  transition: all 200ms ease;
+}
+.make-button:hover {
+  background-color: #68C465;
+  cursor: pointer;
+}
+.make-button:active {
+  background-color: #2D2D2D;
+  color: #404040;
+}
+.make-button.inactive {
+  background-color: #555555;
+  color: #666666;
+}
+.make-button.inactive:hover {
+  cursor: default;
+}
+.make-button.inactive:focus {
+  outline: none;
+}
+.help-wrapper {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 40px 0 16px;
+}
+.help-content {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 40px 0;
+  display: none;
+  color: #333333;
+  flex: 1 0;
+}
+a.text-help {
+  color: #888888;
+  text-align: center;
+  display: block;
+  text-decoration: underline;
+}
+a.text-help:hover {
+  color: #AEAEAE;
+}
+.text-white {
+  color: #ffffff;
+}
+.text-sketch {
+  color: #FDAA05;
+}
+.download-form {
+  width: 100%;
+}
+.download-form .download {
+  width: 100%;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #eee;
+  display: none;
+  transition: all 200ms ease;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.download-form .download:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.download-form .download img {
+  width: 100%;
+}
+.download-form #download-content {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.error {
+  background: rgba(174, 88, 88, 0.18);
+  border: 1px solid #AE5858;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+  color: #AE5858;
+}
+.error strong {
+  color: #FF9090;
+}
+.error p {
+  color: #FFAAAA;
+}
+.footer {
+  background-color: #222222;
+  padding: 40px;
+  text-align: center;
+  color: #888888;
+}
+.footer a {
+  color: #c4c4c4;
+}
+.footer a:hover {
+  color: #FDAA05;
+}
+.footer .text-subtle {
+  color: #484848;
+  font-size: 14px;
+  margin-top: 16px;
+}
+.footer .pizza {
+  width: 18px;
+  margin-right: 3px;
+  margin-bottom: -2px;
+}

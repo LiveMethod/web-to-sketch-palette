@@ -1,6 +1,35 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><title>Internet Website 2001</title><link rel="stylesheet" href="styles/main.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="js/convert.js"></script><script>$(document).ready(function(){
+
+  //- IDE text length check and button unlock
+  $('#entry').bind('input propertychange', function(){
+    //- There needs to be at least a min length hexcode
+    if( $(this).val().length  >= 3 ) {
+      $('#verify').removeClass('inactive');
+    } else {
+      $('#verify').addClass('inactive');
+    }
+  });
+
+  //- show/hide help
+  $('.text-help').click(function(){
+    console.log('click');
+    $('.help-content').fadeToggle();
+
+    if($(this).text() == 'Close help'){
+         $(this).text('What do I do with a Sketch palette?');
+     } else {
+         $(this).text('Close help');
+     }
+  });
+
+  //- Handle verify button click
   $('#verify').click(function(){
-    var data = $('#entry').val();
-    verify(data);
+    //- not doing in this in the selector because
+    //- it messes with event binding
+    if( !$(this).hasClass('inactive') ){
+      var data = $('#entry').val();
+      verify(data);
+    }
+
   })
-});</script></head><body><h2>Entry Form</h2><textarea id="entry"></textarea><input type="button" value="Verify" id="verify"><h2>Download Form</h2><form onsubmit="download(this['name'].value, this['text'].value)"><input type="hidden" name="name" value="custom.sketchpalette"><textarea type="hidden" name="text" id="download-content"></textarea><input type="submit" value="Download"></form></body></html>
+});</script></head><body><div class="header"><img class="logo" src="img/logo.png" alt="logo"></div><div class="content"><div class="value-prop">Paste <strong class="text-white">hex </strong>colors.<br>Get <strong class="text-sketch">Sketch </strong>palette.</div><div class="center-column"><textarea class="ide" id="entry" placeholder="Paste hex colors here. Separate with comma, space, or line break."></textarea><div class="error-wrap"></div><input class="make-button inactive" type="button" value="Make Sketch Palette" id="verify"><form class="download-form" onsubmit="download(this['name'].value, this['text'].value)"><input type="hidden" name="name" value="custom.sketchpalette"><textarea type="hidden" name="text" id="download-content"></textarea><button class="download" type="submit" value="Download"><img src="img/download-button-fill.png" alt="download"></button></form></div><div class="help-wrapper"><a class="text-help" href="#help">What do I do with a Sketch palette?</a></div><div class="help-content"><div class="center-column"><h2>How do I use a .sketchpalette file?</h2><h3>1. Get the Sketch Palettes plugin</h3><p>I highly recommend <a href="https://sketchpacks.com/">https://sketchpacks.com/</a>for managing your sketch plugins. Within sketchpacks, you can search 'palettes' and the sketch-palettes plugin will appear.</p><p>Otherwise, instructions/info here: <a href="https://github.com/andrewfiorillo/sketch-palettes">https://github.com/andrewfiorillo/sketch-palettes</a></p><h3>2. Load your palette from the Plugins menu</h3></div></div></div><div class="footer">Made with<img class="pizza" src="img/pizza.png" alt="pizza">by <a href="http://ricksteeledesign.com">Rick Steele &#8213; Product Design Technolgist</a><div class="text-subtle">Ask me about fintech, design systems, and living style guides.</div></div></body></html>
