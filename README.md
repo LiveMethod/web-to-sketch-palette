@@ -1,7 +1,7 @@
 # web-to-sketch-palette
 Converts your web colors into a sketch palette!
 
-Visit [hex2sketch.com](https://www.hex2sketch.com)
+Visit [hex2sketch.com](http://www.hex2sketch.com)
 
 ![Screenshot](/src/img/screenshot.png?raw=true "Hex2Sketch.com")
 
