@@ -83,7 +83,7 @@ function prepDownload(colors){
 
   document.getElementById('download-content').value = finalValue;
 
-  $('.download').hide().fadeIn(500);
+  $('.download-form').hide().fadeIn(500);
 }
 
 // yell loudly.
@@ -95,7 +95,7 @@ function alertError(input){
     <p>The robot couldn\'t make sense of "'+input+'"</p>\
     <p>' + helptext + '</p></div>');
   $('.error-wrap').html(error);
-  $('.download').hide();
+  $('.download-form').hide();
 }
 
 // retract loud yelling

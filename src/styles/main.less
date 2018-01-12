@@ -83,21 +83,21 @@ a{
   }
 }
 
-.header{
-  padding: 48px;
-  background-color: @bg-darkest;
-  text-align: center;
-
-  .logo{
-    width: 200px;
-  }
-}
+// 
+// MAIN CONTENT
+// 
 
 .content{
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.center-column{
+  width: 80%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .value-prop{
@@ -108,11 +108,9 @@ a{
   padding: @default-padding 0;
 }
 
-.center-column{
-  width: 80%;
-  max-width: 480px;
-  margin: 0 auto;
-}
+.text-white{ color: @white; }
+
+.text-sketch{ color: @text-sketch; }
 
 .ide{
   background-color: @bg-ide;
@@ -172,6 +170,58 @@ a{
   }
 }
 
+.download-form{
+  width: 100%;
+  display: none;
+
+  .download{
+    width: 100%;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: @weight-bold;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: #eee url('../img/dl-default.png') center right 16px no-repeat;
+    transition: background 200ms ease;
+
+
+    &:hover{
+      background-color: @white;
+      background-image: url('../img/dl-hover.png');
+      cursor: pointer;
+    }
+
+    img{
+
+    }
+  }
+
+  #download-content{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.error{
+  background: rgba(174,88,88,0.18);
+  border: 1px solid #AE5858;
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 16px;
+  color: #AE5858;
+
+  strong{ color: @text-error-title; }
+  p{ color: @text-error-body; }
+}
+
+// 
+// README
+// 
+
 .help-wrapper{
   display: block;
   text-align: center;
@@ -203,49 +253,24 @@ a.text-help{
     color: @text-dark-hover;
   }
 }
-.text-white{ color: @white; }
-.text-sketch{ color: @text-sketch; }
 
-.download-form{
-  width: 100%;
+// 
+// HEADER
+// 
 
-  .download{
-    width: 100%;
-    padding: 16px;
-    border-radius: 8px;
-    background-color: #eee;
-    display: none;
-    
-    transition: background 200ms ease;
+.header{
+  padding: 48px;
+  background-color: @bg-darkest;
+  text-align: center;
 
-    &:hover{
-      background-color: @white;
-      cursor: pointer;
-    }
-
-    img{
-      width: 100%;
-    }
-  }
-
-  #download-content{
-    width: 0;
-    height: 0;
-    visibility: hidden;
+  .logo{
+    width: 200px;
   }
 }
 
-.error{
-  background: rgba(174,88,88,0.18);
-  border: 1px solid #AE5858;
-  border-radius: 4px;
-  padding: 16px;
-  margin-top: 16px;
-  color: #AE5858;
-
-  strong{ color: @text-error-title; }
-  p{ color: @text-error-body; }
-}
+// 
+// FOOTER
+// 
 
 .footer{
   background-color: @bg-darkest;

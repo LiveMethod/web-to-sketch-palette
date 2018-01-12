@@ -38,19 +38,16 @@ a {
 a:hover {
   text-decoration: underline;
 }
-.header {
-  padding: 48px;
-  background-color: #222222;
-  text-align: center;
-}
-.header .logo {
-  width: 200px;
-}
 .content {
   flex: 1 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.center-column {
+  width: 80%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 .value-prop {
   color: #979797;
@@ -59,10 +56,11 @@ a:hover {
   text-align: center;
   padding: 40px 0;
 }
-.center-column {
-  width: 80%;
-  max-width: 480px;
-  margin: 0 auto;
+.text-white {
+  color: #ffffff;
+}
+.text-sketch {
+  color: #FDAA05;
 }
 .ide {
   background-color: #2c2c2c;
@@ -113,6 +111,46 @@ a:hover {
 .make-button.inactive:focus {
   outline: none;
 }
+.download-form {
+  width: 100%;
+  display: none;
+}
+.download-form .download {
+  width: 100%;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #eee url('../img/dl-default.png') center right 16px no-repeat;
+  transition: background 200ms ease;
+}
+.download-form .download:hover {
+  background-color: #ffffff;
+  background-image: url('../img/dl-hover.png');
+  cursor: pointer;
+}
+.download-form #download-content {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.error {
+  background: rgba(174, 88, 88, 0.18);
+  border: 1px solid #AE5858;
+  border-radius: 4px;
+  padding: 16px;
+  margin-top: 16px;
+  color: #AE5858;
+}
+.error strong {
+  color: #FF9090;
+}
+.error p {
+  color: #FFAAAA;
+}
 .help-wrapper {
   display: block;
   text-align: center;
@@ -140,48 +178,13 @@ a.text-help {
 a.text-help:hover {
   color: #AEAEAE;
 }
-.text-white {
-  color: #ffffff;
+.header {
+  padding: 48px;
+  background-color: #222222;
+  text-align: center;
 }
-.text-sketch {
-  color: #FDAA05;
-}
-.download-form {
-  width: 100%;
-}
-.download-form .download {
-  width: 100%;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: #eee;
-  display: none;
-  transition: background 200ms ease;
-}
-.download-form .download:hover {
-  background-color: #ffffff;
-  cursor: pointer;
-}
-.download-form .download img {
-  width: 100%;
-}
-.download-form #download-content {
-  width: 0;
-  height: 0;
-  visibility: hidden;
-}
-.error {
-  background: rgba(174, 88, 88, 0.18);
-  border: 1px solid #AE5858;
-  border-radius: 4px;
-  padding: 16px;
-  margin-top: 16px;
-  color: #AE5858;
-}
-.error strong {
-  color: #FF9090;
-}
-.error p {
-  color: #FFAAAA;
+.header .logo {
+  width: 200px;
 }
 .footer {
   background-color: #222222;
