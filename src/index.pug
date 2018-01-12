@@ -65,7 +65,7 @@ html
       
         .error-wrap
 
-        form.download-form(onsubmit="download(this['name'].value, this['text'].value)")
+        form.download-form(onsubmit="download(this['name'].value, this['text'].value); return false")
           input(type="hidden" name="name" value="custom.sketchpalette")
           textarea(type="hidden" name="text" id="download-content")
           button.download(type="submit" value="Download")
