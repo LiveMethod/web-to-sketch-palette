@@ -1,24 +1,24 @@
 # Generate static files
 build:
-	# make the dist dir if it doesn't exist
-	mkdir -p dist
+	# make the docs dir if it doesn't exist
+	mkdir -p docs
 	
 	# Convert pug to html
-	pug ./src --out ./dist
+	pug ./src --out ./docs
 
 	# Convert less to css
-	lessc ./src/styles/main.less ./dist/styles/main.css
+	lessc ./src/styles/main.less ./docs/styles/main.css
 
 	# move static assets
-	cp -r ./src/fonts ./dist
-	cp -r ./src/img ./dist
-	cp -r ./src/js ./dist
+	cp -r ./src/fonts ./docs
+	cp -r ./src/img ./docs
+	cp -r ./src/js ./docs
 
 # Delete static files
 clean:
-	rm -rf ./dist
+	rm -rf ./docs
 
 # Build everything and serve it locally
 dev: build
-	cd ./dist; \
+	cd ./docs; \
 		python -m SimpleHTTPServer 8055
