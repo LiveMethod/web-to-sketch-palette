@@ -83,7 +83,7 @@ function prepDownload(colors){
 
   document.getElementById('download-content').value = finalValue;
 
-  $('.download').show();
+  $('.download').hide().fadeIn(500);
 }
 
 // yell loudly.

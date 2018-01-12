@@ -3,7 +3,7 @@ html,
 body {
   height: 100%;
   background-color: #404040;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
 }
@@ -76,6 +76,7 @@ a:hover {
   font-size: 18px;
   color: #CCCCCC;
   margin-bottom: 16px;
+  font-family: 'Source Code Pro', monospace;
 }
 .ide::placeholder {
   color: #666666;
@@ -123,8 +124,12 @@ a:hover {
   width: 100%;
   padding: 40px 0;
   display: none;
-  color: #333333;
+  color: #424242;
   flex: 1 0;
+}
+.help-content img {
+  width: 100%;
+  margin-top: 16px;
 }
 a.text-help {
   color: #888888;
@@ -150,15 +155,11 @@ a.text-help:hover {
   border-radius: 8px;
   background-color: #eee;
   display: none;
-  transition: all 200ms ease;
-  margin-top: 4px;
-  margin-bottom: 0;
+  transition: background 200ms ease;
 }
 .download-form .download:hover {
   background-color: #ffffff;
   cursor: pointer;
-  margin-top: 0;
-  margin-bottom: 4px;
 }
 .download-form .download img {
   width: 100%;
@@ -173,7 +174,7 @@ a.text-help:hover {
   border: 1px solid #AE5858;
   border-radius: 4px;
   padding: 16px;
-  margin-bottom: 16px;
+  margin-top: 16px;
   color: #AE5858;
 }
 .error strong {

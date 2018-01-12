@@ -25,7 +25,7 @@
 
 @text-value-prop: #979797;
 @text-sketch: #FDAA05;
-@text-readme: #333333;
+@text-readme: #424242;
 
 @text-blue: #2092E9;
 
@@ -40,7 +40,7 @@
 html, body{
   height: 100%;
   background-color: @bg-default;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
 }
@@ -126,6 +126,7 @@ a{
   font-size: 18px;
   color: @text-ide;
   margin-bottom: 16px;
+  font-family: 'Source Code Pro', monospace;
 
   &::placeholder{
     color: @text-satan;
@@ -185,6 +186,11 @@ a{
   display: none;
   color: @text-readme;
   flex: 1 0;
+
+  img{
+    width: 100%;
+    margin-top: 16px;
+  }
 }
 
 a.text-help{
@@ -210,15 +216,11 @@ a.text-help{
     background-color: #eee;
     display: none;
     
-    transition: all 200ms ease;
-    margin-top: 4px;
-    margin-bottom: 0;
+    transition: background 200ms ease;
 
     &:hover{
       background-color: @white;
       cursor: pointer;
-      margin-top: 0;
-      margin-bottom: 4px;
     }
 
     img{
@@ -238,7 +240,7 @@ a.text-help{
   border: 1px solid #AE5858;
   border-radius: 4px;
   padding: 16px;
-  margin-bottom: 16px;
+  margin-top: 16px;
   color: #AE5858;
 
   strong{ color: @text-error-title; }
