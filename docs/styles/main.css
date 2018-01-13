@@ -14,7 +14,7 @@
   align-items: center;
 }
 .center-column {
-  width: 80%;
+  width: 95%;
   max-width: 480px;
   margin: 0 auto;
 }
@@ -24,6 +24,12 @@
   line-height: 1.2em;
   text-align: center;
   padding: 48px 0;
+}
+@media (max-width: 400px) {
+  .value-prop {
+    font-size: 28px;
+    padding: 24px 0;
+  }
 }
 .text-hex {
   color: #424242;
@@ -181,6 +187,9 @@
 .help-content img {
   width: 100%;
   margin-top: 16px;
+}
+.help-content a {
+  word-break: break-all;
 }
 .help-content p {
   color: #666666;

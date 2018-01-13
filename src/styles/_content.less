@@ -10,7 +10,7 @@
 }
 
 .center-column{
-  width: 80%;
+  width: 95%;
   max-width: 480px;
   margin: 0 auto;
 }
@@ -21,6 +21,11 @@
   line-height: 1.2em;
   text-align: center;
   padding: @unit-lg 0;
+
+  @media (max-width: 400px) {
+    font-size: 28px;
+    padding: @unit-md 0;
+  }
 }
 
 .text-hex{ color: @text-default; }
