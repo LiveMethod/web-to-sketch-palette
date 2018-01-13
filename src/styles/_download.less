@@ -1,0 +1,40 @@
+.download-form{
+  width: 100%;
+  display: none;
+
+  .download{
+    width: 100%;
+    padding: @unit-sm;
+    font-size: 16px;
+    font-weight: @weight-bold;
+    border: none;
+    border-radius: @border-radius;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background: url('../img/dl-hover.png') center right 16px no-repeat, linear-gradient(-180deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.06) 100%);
+    transition: background 200ms ease;
+
+    // background-image: linear-gradient(-180deg, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.06) 100%);
+    border: 1px solid #D2D2D2;
+    border-radius: 4px;
+
+
+    &:hover{
+      background-color: @white;
+      background: url('../img/dl-hover.png') center right 16px no-repeat, linear-gradient(-180deg, rgba(225,225,225,0.06) 0%, rgba(0,0,0,0.1) 100%);
+      cursor: pointer;
+    }
+
+    img{
+
+    }
+  }
+
+  #download-content{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}

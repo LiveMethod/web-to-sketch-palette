@@ -44,6 +44,7 @@ function verify(content){
 
       // if it passes the hex regex, save and continue
       if( !hexTest ){
+        initSwatches();
         alertError(input[i]);
         return false;
       } else {
@@ -70,7 +71,7 @@ function prepDownload(colors){
 
   // this array gets filled with sketch color objects
   var sketchColors = [];
-  for( var c =  0; c < colors.length; c++){
+  for( var c = 0; c < colors.length; c++){
     sketchColors.push( hexToSketch(colors[c]) )
   }
 
@@ -83,7 +84,38 @@ function prepDownload(colors){
 
   document.getElementById('download-content').value = finalValue;
 
+  $('.preview-message').hide();
   $('.download-form').hide().fadeIn(500);
+
+  makeSwatches(colors);
+}
+
+// make swatches
+function makeSwatches(colors){
+  // empty existing swatches
+  $('.palette-preview').empty();
+
+  $(colors).each(function(c){
+    // make a swatch object
+    var swatch = $('<div class="swatch"/>')
+      .css('background-color', '#'+colors[c])
+      .wrap('<div class="swatch-wrap"/>')      
+      .parent();
+
+    $('.palette-preview').append(swatch);
+  });
+}
+
+function initSwatches(){
+  $('.palette-preview').empty();
+
+  for(var i = 0; i < 16; i++){
+    var swatch = $('<div class="swatch swatch--empty"/>')
+      .wrap('<div class="swatch-wrap"/>')
+      .parent();
+
+    $('.palette-preview').append(swatch);
+  }
 }
 
 // yell loudly.
@@ -96,11 +128,12 @@ function alertError(input){
     <p>' + helptext + '</p></div>');
   $('.error-wrap').html(error);
   $('.download-form').hide();
+  $('.preview-message').show();
 }
 
 // retract loud yelling
 function clearError(){
-  $('.error-wrap').html(' ');
+  $('.error-wrap').empty();
 }
 
 

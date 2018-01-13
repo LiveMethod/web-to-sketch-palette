@@ -1,0 +1,42 @@
+// 
+// MAIN CONTENT
+// 
+
+.content{
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center-column{
+  width: 80%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.value-prop{
+  color: @text-value-prop;
+  font-size: 36px;
+  line-height: 1.2em;
+  text-align: center;
+  padding: @unit-lg 0;
+}
+
+.text-hex{ color: @text-default; }
+.text-sketch{ color: @text-sketch; }
+
+.card{
+  background: @white;
+  box-shadow: 0 7px 12px 0 rgba(0,0,0,0.10);
+  box-sizing: border-box;
+  border-radius: @border-radius;
+
+  .card__pad{
+    padding: 24px;
+
+    &:first-child{
+      border-bottom: 1px solid @border;
+    }
+  }
+}

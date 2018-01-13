@@ -1,49 +1,57 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
 
-// @import '_locallessfilenamewithoutextension';
-
 @white: #ffffff;
+@off-white: #F6F6F6;
 
 @bg-darkest: #222222;
 @bg-default: #404040;
-@bg-ide: #2c2c2c;
-@bg-ide-active: #272727;
 
 @button-make: #5AAE58;
 @button-make-hover: #68C465;
-@button-make-active: #2D2D2D;
-@button-make-inactive: #555555;
+
+@border: #DADADA;
 
 // Text vars
-@text-dark: #888888;
-@text-dark-hover: #AEAEAE;
-@text-dark-link: #c4c4c4;
-@text-subtle: #484848;
+@text-default: #424242;
 
-@text-ide: #CCCCCC;
-@text-satan: #666666;
+@text-ide-placeholder: #bbbbbb;
+@text-readme-body: #666666;
 
 @text-value-prop: #979797;
 @text-sketch: #FDAA05;
-@text-readme: #424242;
 
 @text-blue: #2092E9;
 
 @weight-bold: 600;
 
-@text-error-body: #FFAAAA;
-@text-error-title: #FF9090;
+@error: #FF7C7C;
+@text-error: #CC4442;
 
 // misc
-@default-padding: 40px;
-@border-radius: 8px;
+@unit-xl: 60px;
+@unit-lg: 48px;
+@unit-md: 24px;
+@unit-sm: 16px;
+@border-radius: 2px;
+
+
+@import '_header';
+@import '_content';
+@import '_form';
+@import '_preview';
+@import '_download';
+@import '_readme';
+@import '_footer';
+
+
 
 html, body{
   height: 100%;
-  background-color: @bg-default;
+  background-color: @off-white;
   font-family: 'Montserrat', Helvetica, Arial, sans-serif;
   font-size: 16px;
   font-weight: 300;
+  color: @text-default;
 }
 
 body{
@@ -70,7 +78,6 @@ p{
  margin: 0.75em 0; 
  line-height: 1.4em;
  font-weight: 400;
- color: @text-satan;
 }
 
 a{
@@ -81,222 +88,5 @@ a{
   text-decoration: none;
   &:hover{
     text-decoration: underline;
-  }
-}
-
-// 
-// MAIN CONTENT
-// 
-
-.content{
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.center-column{
-  width: 80%;
-  max-width: 480px;
-  margin: 0 auto;
-}
-
-.value-prop{
-  color: @text-value-prop;
-  font-size: 36px;
-  line-height: 1.2em;
-  text-align: center;
-  padding: @default-padding 0;
-}
-
-.text-white{ color: @white; }
-
-.text-sketch{ color: @text-sketch; }
-
-.ide{
-  background-color: @bg-ide;
-  box-shadow: inset 0 1px 20px 0 rgba(0,0,0,0.1);
-  border-radius: @border-radius;
-  height: 320px;
-  padding: 36px;
-  width: 100%;
-  box-sizing: border-box;
-  border: none;
-  font-size: 18px;
-  color: @text-ide;
-  margin-bottom: 16px;
-  font-family: 'Source Code Pro', monospace;
-
-  &::placeholder{
-    color: @text-satan;
-  }
-
-
-  &:focus{
-    outline: none;
-    background-color: @bg-ide-active;
-  }
-}
-
-.make-button{
-  background-color: @button-make;
-  border: none;
-  border-radius: @border-radius;
-  width: 100%;
-  color: @white;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 16px;
-  transition: all 200ms ease;
-
-  &:hover{
-    background-color: @button-make-hover;
-    cursor: pointer;
-  }
-  &:active{
-    background-color: @button-make-active;
-    color: @bg-default;
-  }
-  &.inactive{
-    background-color: @button-make-inactive;
-    color: @text-satan;
-
-    &:hover{
-      cursor: default;
-    }
-
-    &:focus{
-      outline: none;
-    }
-
-  }
-}
-
-.download-form{
-  width: 100%;
-  display: none;
-
-  .download{
-    width: 100%;
-    padding: 16px;
-    font-size: 20px;
-    font-weight: @weight-bold;
-    border: none;
-    border-radius: @border-radius;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background: #eee url('../img/dl-default.png') center right 16px no-repeat;
-    transition: background 200ms ease;
-
-
-    &:hover{
-      background-color: @white;
-      background-image: url('../img/dl-hover.png');
-      cursor: pointer;
-    }
-
-    img{
-
-    }
-  }
-
-  #download-content{
-    width: 0;
-    height: 0;
-    visibility: hidden;
-  }
-}
-
-.error{
-  background: rgba(174,88,88,0.18);
-  border: 1px solid #AE5858;
-  border-radius: 4px;
-  padding: 16px;
-  margin-top: 16px;
-  color: #AE5858;
-
-  strong{ color: @text-error-title; }
-  p{ color: @text-error-body; }
-}
-
-// 
-// README
-// 
-
-.help-wrapper{
-  display: block;
-  text-align: center;
-  width: 100%;
-  padding: @default-padding 0 16px;
-}
-
-.help-content{
-  background-color: @white;
-  width: 100%;
-  padding: @default-padding 0;
-  display: none;
-  color: @text-readme;
-  flex: 1 0;
-
-  img{
-    width: 100%;
-    margin-top: 16px;
-  }
-}
-
-a.text-help{
-  color: @text-dark;
-  text-align: center;
-  display: block;
-  text-decoration: underline;
-
-  &:hover{
-    color: @text-dark-hover;
-  }
-}
-
-// 
-// HEADER
-// 
-
-.header{
-  padding: 48px;
-  background-color: @bg-darkest;
-  text-align: center;
-
-  .logo{
-    width: 200px;
-  }
-}
-
-// 
-// FOOTER
-// 
-
-.footer{
-  background-color: @bg-darkest;
-  padding: @default-padding;
-  text-align: center;
-  color: @text-dark;
-
-  a{
-    color: @text-dark-link;
-
-    &:hover{
-      color: @text-sketch;
-    }
-  }
-  .text-subtle{
-    color: @text-subtle;
-    font-size: 14px;
-    margin-top: 16px;
-  }
-
-  .pizza{
-    width: 18px;
-    margin-right: 3px;
-    margin-bottom: -2px;
   }
 }

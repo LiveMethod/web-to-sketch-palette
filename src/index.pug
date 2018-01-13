@@ -25,18 +25,6 @@ html
           }
         });
 
-        //- show/hide help
-        $('.text-help').click(function(){
-          console.log('click');
-          $('.help-content').fadeToggle();
-
-          if($(this).text() == 'Close help'){
-               $(this).text('What do I do with a Sketch palette?');
-           } else {
-               $(this).text('Close help');
-           }
-        });
-
         //- Handle verify button click
         $('#verify').click(function(){
           //- not doing in this in the selector because
@@ -47,25 +35,22 @@ html
           }
 
         })
+
+        initSwatches();
       });
   body
-    .header
-      img.logo(src="img/logo.png" alt="logo")
-    .content
-      .value-prop
-        | Paste 
-        strong.text-white hex 
-        | colors.
-        br
-        | Get 
-        strong.text-sketch Sketch 
-        | palette.
+    include _top.pug
 
-      .center-column
+    .center-column.card
+      .card__pad
         textarea.ide(id="entry" placeholder="Paste hex colors here. Separate with comma, space, or line break.")
         input.make-button.inactive(type="button" value="Make Sketch Palette" id="verify")
       
         .error-wrap
+
+      .card__pad
+        .palette-preview
+        .preview-message Your palette preview will appear here
 
         form.download-form(onsubmit="download(this['name'].value, this['text'].value); return false")
           input(type="hidden" name="name" value="custom.sketchpalette")
@@ -74,29 +59,5 @@ html
             img(src="img/file-icon.png" alt="icon")
             .filename custom.sketchpalette
       
-      .help-wrapper
-        a.text-help(href="#help") What do I do with a Sketch palette?
-      .help-content
-        .center-column
-          h2 How do I use a .sketchpalette file?
-
-          h3 1. Get the Sketch Palettes plugin
-
-          p I highly recommend 
-            a(href="https://sketchpacks.com/") https://sketchpacks.com/
-            |  for managing your sketch plugins. Within sketchpacks, you can search 'palettes' and the sketch-palettes plugin will appear.
-          
-          p Otherwise, instructions/info here: 
-            a(href="https://github.com/andrewfiorillo/sketch-palettes") https://github.com/andrewfiorillo/sketch-palettes
-
-          h3 2. Load your palette from the Plugins menu
-          img(src="img/tutorial-1.jpg" alt="Plugins > Sketch Palettes > Load Palette")
-          img(src="img/tutorial-2.jpg" alt="Select Destination")
-
-
-    .footer
-      | Made with
-      img.pizza(src="img/pizza.png" alt="pizza")
-      | by 
-      a(href="http://ricksteeledesign.com") Rick Steele &#8213; Product Design Technologist
-      .text-subtle Ask me about fintech, design systems, and living style guides.
+    include _help.pug
+    include _footer.pug
