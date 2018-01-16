@@ -7,7 +7,6 @@ Visit [hex2sketch.com](http://www.hex2sketch.com)
 
 
 # TODO:
-* Palette previews before download
 * remove redundant colors?
 * dummy fills for row organization?
 eg turn rows like
